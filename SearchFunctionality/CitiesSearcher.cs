@@ -4,6 +4,9 @@ public class CitiesSearcher
 {
     public ICollection<string> Search(string searchText)
     {
-        return new List<string>();
+        if (string.IsNullOrWhiteSpace(searchText) || searchText.Length < 2)
+            return new List<string>();
+
+        return CitiesData.Cities.Where(c => c.StartsWith(searchText)).ToList();
     }
 }
