@@ -13,10 +13,11 @@ namespace SearchFunctionality.Tests
             citiesSearcher = new CitiesSearcher();
         }
 
-        [Test]
-        public void return_no_results_if_search_text_if_fewer_than_2_chars()
+        [TestCase("")]
+        [TestCase("A")]
+        public void return_no_results_if_search_text_if_fewer_than_2_chars(string searchText)
         {
-            var result = citiesSearcher.Search("A");
+            var result = citiesSearcher.Search(searchText);
 
             result.Should().BeEmpty();
         }
