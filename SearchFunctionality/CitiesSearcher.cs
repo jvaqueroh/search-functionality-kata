@@ -8,7 +8,7 @@ public class CitiesSearcher
             return new List<string>();
 
         return CitiesData.Cities
-            .Where(c => c.StartsWith(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .Where(c => c.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
             .ToList();
     }
 }
