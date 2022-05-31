@@ -23,14 +23,14 @@ namespace SearchFunctionality.Tests
             result.Should().BeEmpty();
         }
 
-        [TestCase("Va", new[]{"Valencia", "Vancouver"})]
+        [TestCase("Va", new[] { "Valencia", "Vancouver" })]
+        [TestCase("Val", new[] { "Valencia" })]
         public void return_cities_starting_with_search_text(string searchText, string[] expectedResults)
         {
             var result = citiesSearcher.Search(searchText);
 
             result.Should().HaveCount(expectedResults.Length);
-            result.Should().Contain(expectedResults[0]);
-            result.Should().Contain(expectedResults[1]);
+            result.Should().Contain(expectedResults);
         }
     }
 }
