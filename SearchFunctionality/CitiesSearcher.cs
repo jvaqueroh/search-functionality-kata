@@ -7,6 +7,8 @@ public class CitiesSearcher
         if (string.IsNullOrWhiteSpace(searchText) || searchText.Length < 2)
             return new List<string>();
 
-        return CitiesData.Cities.Where(c => c.StartsWith(searchText)).ToList();
+        return CitiesData.Cities
+            .Where(c => c.StartsWith(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
     }
 }
