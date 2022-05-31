@@ -27,6 +27,7 @@ namespace SearchFunctionality.Tests
         [TestCase("Val", new[] { "Valencia" })]
         [TestCase("VAL", new[] { "Valencia" })]
         [TestCase("ape", new[] { "Budapest" })]
+        [TestCase("ON", new[] { "London", "Hong Kong" })]
         public void return_cities_containing_search_text_case_insensitive(string searchText, string[] expectedResults)
         {
             var result = citiesSearcher.Search(searchText);
