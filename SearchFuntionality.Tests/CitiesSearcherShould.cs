@@ -35,5 +35,17 @@ namespace SearchFunctionality.Tests
             result.Should().HaveCount(expectedResults.Length);
             result.Should().Contain(expectedResults);
         }
+
+        [Test]
+        public void return_all_cities_when_search_text_is_an_asterisk()
+        {
+            var allTheCities = CitiesData.Cities;
+
+            var result = citiesSearcher.Search("*");
+
+            result.Should()
+                .HaveCount(allTheCities.Count)
+                .And.Contain(allTheCities);
+        }
     }
 }
