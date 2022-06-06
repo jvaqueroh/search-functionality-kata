@@ -6,6 +6,8 @@ public class CitiesFinder
     {
         if (searchText.Equals("*"))
             return CitiesData.Cities;
-        return new List<string>();
+        if (searchText.Length < 2)
+            return new List<string>();
+        return CitiesData.Cities.Where(city => city.StartsWith(searchText)).ToList();
     }
 }
