@@ -9,7 +9,7 @@ public class CitiesFinder
         if (searchText.Length < 2)
             return new List<string>();
         return CitiesData.Cities
-            .Where(city => city.StartsWith(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .Where(city => city.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
             .ToList();
     }
 }
