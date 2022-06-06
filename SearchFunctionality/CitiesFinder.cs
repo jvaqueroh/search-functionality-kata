@@ -8,6 +8,8 @@ public class CitiesFinder
             return CitiesData.Cities;
         if (searchText.Length < 2)
             return new List<string>();
-        return CitiesData.Cities.Where(city => city.StartsWith(searchText)).ToList();
+        return CitiesData.Cities
+            .Where(city => city.StartsWith(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
     }
 }
