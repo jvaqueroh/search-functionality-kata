@@ -21,5 +21,13 @@ namespace SearchFuntionality.Tests
 
             result.Should().BeEquivalentTo(CitiesData.Cities);
         }
+
+        [Test]
+        public void return_no_results_if_text_search_if_fewer_than_2_chars()
+        {
+            var result = citiesFinder.GetCities("");
+
+            result.Should().BeEmpty();
+        }
     }
 }
