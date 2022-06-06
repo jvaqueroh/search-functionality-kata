@@ -22,10 +22,11 @@ namespace SearchFuntionality.Tests
             result.Should().BeEquivalentTo(CitiesData.Cities);
         }
 
-        [Test]
-        public void return_no_results_if_text_search_if_fewer_than_2_chars()
+        [TestCase("")]
+        [TestCase("V")]
+        public void return_no_results_if_text_search_if_fewer_than_2_chars(string searchText)
         {
-            var result = citiesFinder.GetCities("");
+            var result = citiesFinder.GetCities(searchText);
 
             result.Should().BeEmpty();
         }
