@@ -1,3 +1,4 @@
+using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using SearchFunctionality;
@@ -48,6 +49,16 @@ namespace SearchFuntionality.Tests
             var expectedCities = new[] { "Valencia", "Vancouver" };
 
             var result = citiesFinder.GetCities(searchText);
+
+            result.Should().BeEquivalentTo(expectedCities);
+        }
+
+        [Test]
+        public void return_cities_containing_the_text_search()
+        {
+            var expectedCities = new[] { "Budapest" };
+
+            var result = citiesFinder.GetCities("ape");
 
             result.Should().BeEquivalentTo(expectedCities);
         }
