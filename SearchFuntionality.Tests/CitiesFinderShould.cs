@@ -30,5 +30,15 @@ namespace SearchFuntionality.Tests
 
             result.Should().BeEmpty();
         }
+
+        [Test]
+        public void return_cities_starting_with_text_search()
+        {
+            var expectedCities = new[] { "Valencia", "Vancouver" };
+
+            var result = citiesFinder.GetCities("Va");
+
+            result.Should().BeEquivalentTo(expectedCities);
+        }
     }
 }
