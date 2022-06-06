@@ -41,12 +41,13 @@ namespace SearchFuntionality.Tests
             result.Should().BeEquivalentTo(expectedCities);
         }
 
-        [Test]
-        public void return_cities_searching_by_case_insensitive_text()
+        [TestCase("va")]
+        [TestCase("VA")]
+        public void return_cities_searching_by_case_insensitive_text(string searchText)
         {
             var expectedCities = new[] { "Valencia", "Vancouver" };
 
-            var result = citiesFinder.GetCities("va");
+            var result = citiesFinder.GetCities(searchText);
 
             result.Should().BeEquivalentTo(expectedCities);
         }
